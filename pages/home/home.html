@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        box-sizing: border-box;
+    }
+
+    .pageContainer {
+        width: 100%;
+    }
+
+    .header {
+        width: 100%;
+        height: 100%;
+
+    }
+
+    .header nav {
+        width: 100%;
+        background-color: #fff;
+    }
+
+    .header nav .top {
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        height: auto;
+        width: 100%;
+        border-bottom: 1px solid #d7d7d8;
+        text-align: center;
+        padding: 5px;
+        font-size: 12px;
+        color: #000;
+        color: inherit;
+        letter-spacing: 0;
+        line-height: 20px;
+        text-transform: none;
+    }
+
+    .header nav .bom {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 64px;
+        min-height: 64px;
+        font-family: "MangoSans", sans-serif;
+        background: inherit;
+    }
+
+    .header nav .bom-left .menu-list {
+        display: flex;
+        height: 64px;
+        margin: 0 0 0 1rem;
+        padding: 0;
+        list-style: none;
+    }
+
+    .header nav .bom-left .menu-item {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        margin: 0 1rem;
+        font-weight: 400;
+        font-size: 13px;
+        font-family: "MangoSans", sans-serif;
+        line-height: 20px;
+        letter-spacing: 0.3px;
+        list-style: none;
+        cursor: pointer;
+    }
+
+    .header .menu-item a {
+        text-underline-offset: 7px;
+        color: inherit;
+        transition: color 50ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    }
+
+    .header .menu-item a:hover {
+        text-decoration: underline;
+    }
+
+    .header .bom-center {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        z-index: 1;
+        display: inline-block;
+        width: 144px;
+        height: 100%;
+        margin-left: -72px;
+        text-align: left;
+    }
+
+    .header .logo img {
+        width: 100%;
+        height: auto;
+    }
+
+    .header .nav-list {
+        position: absolute;
+        z-index: 10;
+        display: table;
+        height: 100%;
+        top: 0;
+        right: 32px;
+    }
+
+    .header .nav-item {
+        position: relative;
+        display: table-cell;
+        width: 78px;
+        line-height: 58px;
+        cursor: pointer;
+    }
+
+    .header .nav-item span {
+        position: absolute;
+        bottom: 12px;
+        left: 0;
+        width: 78px;
+        font-weight: 400;
+        font-size: 11px;
+        font-family: MangoSans, sans-serif;
+        line-height: 14px;
+        letter-spacing: 0.3px;
+        white-space: nowrap;
+        text-align: center;
+    }
+
+    .header .nav-item i {
+        position: absolute;
+        top: 13px;
+        left: 0;
+        display: inline-block;
+        width: 100%;
+        height: 22px;
+        font-size: 22px;
+        line-height: 22px;
+        text-align: center;
+    }
+
+    .main {
+        width: 100%;
+        margin-top: 86px;
+    }
+
+    .main-classify {
+        width: 53%;
+        margin: 3px auto 0;
+        text-align: center;
+        line-height: 60px;
+    }
+
+    .main-classify a {
+        display: inline-block;
+        margin: 16px 16px 0;
+        color: #121314;
+        font-weight: 300;
+        font-size: 13px;
+        font-family: "MangoSans", sans-serif;
+        line-height: 20px;
+        letter-spacing: 0.3px;
+        outline: 0;
+        text-decoration: none;
+    }
+
+    .main .good-img {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .main .good-img img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .main .good-img .cover {
+        position: absolute;
+        bottom: -50px;
+        width: 100%;
+        background-color: rgba(251, 251, 250, .9);
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+        font-size: 12px;
+        color: #000;
+        transition: .3s;
+        z-index: 100;
+    }
+
+    .main .goods-main li:hover .cover {
+        transform: translateY(-50px);
+        cursor: pointer;
+    }
+
+    .main .goods-main li img {
+        transition: .3s;
+    }
+
+    .main .goods-main li:hover img {
+        transform: scale(1.1);
+    }
+
+    .main .good-info {
+        position: relative;
+        z-index: 3;
+        display: inline-block;
+        width: 100%;
+        height: 107px;
+        max-height: 131px;
+        padding: 14px 40px 54px 8px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-align: left;
+        text-overflow: ellipsis;
+        background-color: #fff;
+    }
+
+    .goods-main ul {
+        width: 100%;
+        /* background-color: seashell; */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .goods-main li {
+        width: 49.5%;
+        margin-right: 5px;
+    }
+
+    .main .like {
+        position: absolute;
+        top: 14px;
+        right: 8px;
+        left: initial;
+        color: #666;
+        font-size: 20px;
+        cursor: pointer;
+        transition: all 0.25s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    }
+
+    .sg-text {
+        color: #121314;
+        font-family: "MangoSans", sans-serif;
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 400;
+        letter-spacing: .3px;
+        line-height: 16px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        display: block;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .product-name {
+        color: #121314;
+        font-family: "MangoSans", sans-serif;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 300;
+        letter-spacing: .3px;
+        line-height: 20px;
+        display: block;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .main .good-name {
+        width: 100%;
+        height: auto;
+    }
+
+    .main .product-colors {
+        width: 100%;
+        margin-top: 4px;
+        text-align: left;
+        opacity: 1;
+    }
+
+    .main .product-colors a {
+        position: relative;
+        z-index: 3;
+        text-align: left;
+        color: #121314;
+        font-family: "MangoSans", sans-serif;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 300;
+        letter-spacing: .3px;
+        line-height: 20px;
+    }
+    }
+
+    .main .color_box {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .main .rtu {
+        position: relative;
+        top: 1px;
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        padding: 0;
+        line-height: 16px;
+        text-align: center;
+        background-color: transparent;
+        border: 0;
+        border-radius: 16px;
+        cursor: pointer;
+        opacity: 1;
+        top: 0;
+        transition: .3s;
+    }
+
+    .main .rtu:nth-of-type(1) {
+        border: 1px solid #d7d7d8;
+        margin: 0 2px;
+    }
+
+    .main .rtu:focus {
+        border: 1px solid #d7d7d8;
+        margin: 0 2px;
+    }
+
+    .main .rtu img {
+        position: relative;
+        top: 0.6px;
+        left: 0.1px;
+        width: 12px;
+        height: 12px;
+        line-height: 16px;
+        vertical-align: top;
+        border-radius: 12px;
+        outline: none;
+        cursor: pointer;
+    }
+
+    .fixed {
+        position: fixed;
+        margin: 0 auto;
+        z-index: 999;
+        width: 100%;
+        text-align: center;
+        background-color: #fff;
+    }
+
+    .main .price-container .old {
+        position: relative;
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+    .main .price-container .old::before {
+        position: absolute;
+        top: 47%;
+        left: -4%;
+        width: 108%;
+        height: 1px;
+        background-color: #121314;
+        content: '';
+    }
+
+    .main .price-container .new {
+        color: #e90000
+    }
+
+    .main .price-container span {
+        color: #121314;
+        font-family: "MangoSans", sans-serif;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 300;
+        letter-spacing: .3px;
+        line-height: 20px;
+    }
+
+    .none {
+        display: none;
+    }
+
+    .goods-main .li-resize {
+        width: 48.5%;
+    }
+
+    .goods-main .li-resize-s {
+        width: 47.5%;
+    }
+</style>
+
+<body>
+    <div class="pageContainer">
+        <div class="header">
+            <nav class="navbar  navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="top">￥199起免费配送</div>
+                    </div>
+                    <div class="row">
+                        <div class="bom">
+                            <div class="bom-left">
+                                <div class="menu-list">
+                                    <div class="menu-item">
+                                        <a href="">女士</a>
+                                    </div>
+                                    <div class="menu-item">
+                                        <a href="">男士</a>
+                                    </div>
+                                    <div class="menu-item">
+                                        <a href="">Teen</a>
+                                    </div>
+                                    <div class="menu-item">
+                                        <a href="">儿童</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bom-center">
+                                <div class="logo">
+                                    <img src="../../img/logo.png" alt="">
+                                </div>
+                            </div>
+                            <div class="bom-right">
+                                <div class="nav-list">
+                                    <div class="nav-item">
+                                        <i>
+                                            <svg t="1648352628562" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                                xmlns="http://www.w3.org/2000/svg" p-id="1228" width="16" height="16">
+                                                <path
+                                                    d="M760.090355 263.551488c-17.47807-41.321104-42.487673-78.426187-74.343195-110.281709s-68.960605-56.865125-110.281709-74.343195c-42.784432-18.092054-88.219227-27.27111-135.055952-27.27111-46.826492 0-92.261287 9.179057-135.055952 27.27111-41.310871 17.47807-78.415954 42.487673-110.271476 74.343195s-56.865125 68.960605-74.343195 110.281709c-18.092054 42.784432-27.27111 88.219227-27.27111 135.055952 0 46.826492 9.179057 92.261287 27.27111 135.055952 17.47807 41.310871 42.487673 78.415954 74.343195 110.271476s68.960605 56.865125 110.271476 74.343195c42.794665 18.092054 88.22946 27.27111 135.055952 27.27111 46.836725 0 92.27152-9.179057 135.055952-27.27111 41.321104-17.47807 78.426187-42.487673 110.281709-74.343195s56.865125-68.960605 74.343195-110.271476c18.092054-42.794665 27.27111-88.22946 27.27111-135.055952C787.361465 351.770715 778.182408 306.33592 760.090355 263.551488zM656.797827 614.985536c-57.796334 57.796334-134.64663 89.63139-216.388329 89.63139s-158.581762-31.835056-216.378096-89.63139c-57.796334-57.786101-89.63139-134.636397-89.63139-216.378096s31.835056-158.591995 89.63139-216.388329 134.636397-89.63139 216.378096-89.63139 158.591995 31.835056 216.388329 89.63139c57.796334 57.796334 89.63139 134.64663 89.63139 216.388329S714.594161 557.199435 656.797827 614.985536z"
+                                                    p-id="1229" fill="#707070"></path>
+                                                <path
+                                                    d="M954.805058 933.397493c-3.990894 4.001127-9.230222 5.996574-14.46955 5.996574s-10.478655-1.995447-14.46955-5.996574l-193.855126-193.844893c-7.981788-7.992021-7.981788-20.947078 0-28.939099 8.002254-7.992021 20.957311-7.992021 28.949332 0l193.844893 193.844893C962.79708 912.450415 962.79708 925.405471 954.805058 933.397493z"
+                                                    p-id="1230" fill="#707070"></path>
+                                            </svg>
+                                        </i>
+                                        <span>搜索</span>
+                                    </div>
+                                    <div class="nav-item">
+                                        <i>
+                                            <svg t="1648352742981" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                                xmlns="http://www.w3.org/2000/svg" p-id="3843" width="16" height="16">
+                                                <path
+                                                    d="M512 447.223c-88.224 0-160-71.776-160-160s71.776-160 160-160c88.225 0 160 71.776 160 160s-71.775 160-160 160z m0-256c-52.935 0-96 43.065-96 96s43.065 96 96 96 96-43.065 96-96-43.065-96-96-96zM454.901 870.594c-96.594 0-184.933-3.802-231.263-49.955C203.308 800.386 193 774.164 193 742.701c0-31.629 10.247-62.812 30.457-92.686 17.978-26.573 42.908-50.741 74.098-71.833C359.256 536.46 437.418 512.53 512 512.53c74.55 0 152.55 23.943 214.002 65.691 31.05 21.094 55.861 45.273 73.746 71.867C819.822 679.937 830 711.096 830 742.701c0 31.552-10.317 57.827-30.664 78.097-50.714 50.521-151.822 50.128-258.88 49.723a7395.45 7395.45 0 0 0-56.914-0.001c-9.605 0.037-19.163 0.074-28.641 0.074zM512 806.447c9.567 0 19.149 0.037 28.701 0.073 49.52 0.191 96.284 0.37 135.808-4.396 38.418-4.633 64.546-13.604 77.659-26.668 5.079-5.06 11.832-13.96 11.832-32.755 0-38.089-27.688-78.744-75.963-111.54C638.933 596.442 574.04 576.53 512 576.53c-126.309 0-255 83.862-255 166.171 0 18.675 6.738 27.547 11.807 32.596 32.045 31.922 128.975 31.55 214.491 31.224 9.556-0.037 19.139-0.074 28.702-0.074z"
+                                                    fill="#2c2c2c" p-id="3844"></path>
+                                            </svg>
+                                        </i>
+                                        <span isLogin=0>登录</span>
+                                    </div>
+                                    <div class="nav-item">
+                                        <i>
+                                            <svg t="1648352797036" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                                xmlns="http://www.w3.org/2000/svg" p-id="3181" width="16" height="16">
+                                                <path
+                                                    d="M722.055 120.875c-89.793 0-169.909 49.429-210.04 125.049l-0.029 0c-40.131-75.62-120.262-125.049-210.041-125.049C171.293 120.875 65 225.509 65 354.109c0 62.408 8.803 126.417 77.076 210.229 66.526 81.615 354.515 325.355 369.561 338.16l0 0.626c0 0 0.262-0.219 0.364-0.306 0.087 0.087 0.364 0.306 0.364 0.306l0-0.626c15.017-12.805 303.035-256.545 369.532-338.16C950.197 480.526 959 416.518 959 354.109 959 225.509 852.707 120.875 722.055 120.875zM858.789 545.51c-53.532 65.712-259.543 243.697-345.174 316.785l-0.059-0.059-1.629 1.397C370.319 742.906 209.62 600.047 165.167 545.51c-64.94-79.724-70.368-138.262-70.368-191.4 0-112.172 92.921-203.435 207.145-203.435 77.57 0 147.967 41.848 183.718 109.218l26.308 49.574 26.337-49.574c35.78-67.37 106.191-109.218 183.747-109.218 114.224 0 207.146 91.263 207.146 203.435C929.2 407.248 923.758 465.786 858.789 545.51z"
+                                                    p-id="3182" fill="#515151"></path>
+                                            </svg>
+                                        </i>
+                                        <span LikeNum=0>愿望清单</span>
+                                    </div>
+                                    <div class="nav-item">
+                                        <i>
+                                            <svg t="1648352863967" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                                xmlns="http://www.w3.org/2000/svg" p-id="7283" width="16" height="16">
+                                                <path
+                                                    d="M890.01984 357.60128c0-61.62432-50.13504-111.7696-111.7696-111.7696h-68.25984v-23.06048c0-113.36704-92.23168-205.59872-205.59872-205.59872s-205.59872 92.23168-205.59872 205.59872v23.06048h-68.23936c-61.62432 0-111.75936 50.13504-111.74912 110.9504l-21.7088 548.5056c0 61.62432 50.13504 111.75936 111.7696 111.75936H799.9488c61.62432 0 111.75936-50.13504 111.73888-112.56832l-21.66784-546.87744zM339.75296 222.78144c0-90.78784 73.85088-164.63872 164.63872-164.63872s164.63872 73.85088 164.63872 164.63872v23.06048H339.75296v-23.06048zM799.9488 976.09728H208.86528c-39.03488 0-70.8096-31.76448-70.81984-69.9904l21.7088-548.5056c0-39.03488 31.76448-70.8096 70.79936-70.8096H778.24c39.03488 0 70.8096 31.76448 70.83008 71.61856l21.66784 546.88768a70.8608 70.8608 0 0 1-70.78912 70.79936z"
+                                                    fill="#515151" p-id="7284"></path>
+                                                <path
+                                                    d="M504.39168 701.94176c-96.36864 0-174.76608-78.39744-174.76608-174.76608h-40.96c0 118.94784 96.77824 215.72608 215.72608 215.72608 118.95808 0 215.72608-96.77824 215.72608-215.72608h-40.96c0 96.36864-78.39744 174.76608-174.76608 174.76608z"
+                                                    fill="#515151" p-id="7285"></path>
+                                            </svg>
+                                        </i>
+                                        <span ShopNum=0>购物篮</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="main">
+            <div class="main-classify">
+                <a href="">全选</a>
+                <a href="">皮革</a>
+                <a href="">购物者</a>
+                <a href="">单肩包</a>
+                <a href="">法式长棍面包</a>
+                <a href="">小家伙</a>
+                <a href="">运动的</a>
+                <a href="">聚会</a>
+            </div>
+            <div class="goods-main">
+                <div class="container">
+                    <ul>
+                        <li>
+                            <div class="good-img">
+                                <a href=""><img src="../../img/goods_1.webp" onclick="getdetail(1);return false;" alt=""></a>
+                                <div class="cover" onclick="initshop(this);" data-shop=0 data-id=1>
+                                    添加
+                                </div>
+                            </div>
+                            <div class="good-info">
+                                <div class="like_box">
+                                    <i class="like">
+                                        <img src="../../img/like_1.png" data-like=0 data-id=1 class="likes" alt="">
+                                    </i>
+                                </div>
+                                <div class="good-name">
+                                    <span class="sg-text">网店专享</span>
+                                    <span class="product-name">串珠法棍包</span>
+                                </div>
+                                <div class="price-container">
+                                    <span>￥499</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="good-img">
+                                <a href=""><img src="../../img/goods_2.webp" onclick="getdetail(2);return false;" alt=""></a>
+                                <div class="cover" onclick="initshop(this);" data-shop=0 data-id=2>
+                                    添加
+                                </div>
+                            </div>
+                            <div class="good-info">
+                                <div class="like_box">
+                                    <i class="like">
+                                        <img src="../../img/like_1.png" data-like=0 data-id=2 class="likes" alt="">
+                                    </i>
+                                </div>
+                                <div class="good-name">
+                                    <span>超大购物袋</span>
+                                </div>
+                                <div class="price-container">
+                                    <span>￥499</span>
+                                </div>
+                                <div class="product-colors">
+                                    <div class="color_box">
+                                        <button class="rtu">
+                                            <img class="rtu-img" src="../../img/goods_2_color_1.webp" alt="">
+                                        </button>
+                                        <button class="rtu">
+                                            <img class="rtu-img" src="../../img/goods_2_color_2.webp" alt="">
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="good-img">
+                                <a href=""><img src="../../img/goods_3.webp" onclick="getdetail(3);return false;"  alt=""></a>
+                                <div class="cover" onclick="initshop(this);" data-shop=0 data-id=3>
+                                    添加
+                                </div>
+                            </div>
+                            <div class="good-info">
+                                <div class="like_box">
+                                    <i class="like">
+                                        <img src="../../img/like_1.png" data-like=0 data-id="3" class="likes" alt="">
+                                    </i>
+                                </div>
+                                <div class="good-name">
+                                    <span class="product-name">标志棉质手袋</span>
+                                </div>
+                                <div class="price-container">
+                                    <span>￥299</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="good-img">
+                                <a href=""><img src="../../img/goods_4.webp"  onclick="getdetail(4);return false;" alt=""></a>
+                                <div class="cover" onclick="initshop(this);" data-shop=0 data-id=4>
+                                    添加
+                                </div>
+                            </div>
+                            <div class="good-info">
+                                <div class="like_box">
+                                    <i class="like">
+                                        <img src="../../img/like_1.png" data-like=0 data-id=4 class="likes" alt="">
+                                    </i>
+                                </div>
+                                <div class="good-name">
+                                    <span class="product-name">翻盖斜挎包</span>
+                                </div>
+                                <div class="price-container">
+                                    <span>￥259</span>
+                                </div>
+                                <div class="product-colors">
+                                    <div class="color_box">
+                                        <button class="rtu">
+                                            <img class="rtu-img" src="../../img/goods_4_color_1.webp" alt="">
+                                        </button>
+                                        <button class="rtu">
+                                            <img class="rtu-img" src="../../img/goods_4_color_2.webp" alt="">
+                                        </button>
+                                        <button class="rtu">
+                                            <img class="rtu-img" src="../../img/goods_4_color_3.webp" alt="">
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="good-img">
+                                <a href=""><img src="../../img/goods_5.webp"  onclick="getdetail(5);return false;" alt=""></a>
+                                <div class="cover" onclick="initshop(this);" data-shop=0 data-id=5>
+                                    添加
+                                </div>
+                            </div>
+                            <div class="good-info">
+                                <div class="like_box">
+                                    <i class="like">
+                                        <img src="../../img/like_1.png" data-like=0 data-id=5 class="likes" alt="">
+                                    </i>
+                                </div>
+                                <div class="good-name">
+                                    <span class="sg-text">NEW NOW</span>
+                                    <span class="product-name">桶包</span>
+                                </div>
+                                <div class="price-container">
+                                    <span>￥359</span>
+                                </div>
+                                <!-- <div class="product-colors">
+                                    <div class="color_box">
+                                        <button class="rtu">
+                                            <img class="rtu-img" src="../../img/goods_4_color_1.webp" alt="">
+                                        </button>
+                                        <button class="rtu">
+                                            <img class="rtu-img" src="../../img/goods_4_color_2.webp" alt="">
+                                        </button>
+                                        <button class="rtu">
+                                            <img class="rtu-img" src="../../img/goods_4_color_3.webp" alt="">
+                                        </button>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </li>
+                        <li>
+                            <div class="good-img">
+                                <a href=""><img src="../../img/goods_6.webp"  onclick="getdetail(6);return false;" alt=""></a>
+                                <div class="cover" onclick="initshop(this);" data-shop=0 data-id=6>
+                                    添加
+                                </div>
+                            </div>
+                            <div class="good-info">
+                                <div class="like_box">
+                                    <i class="like">
+                                        <img src="../../img/like_1.png" data-like=0 data-id=6 class="likes" alt="">
+                                    </i>
+                                </div>
+                                <div class="good-name">
+                                    <span class="sg-text"></span>
+                                    <span class="product-name">帆布斜挎包</span>
+                                </div>
+                                <div class="price-container">
+                                    <span>￥359</span>
+                                </div>
+                                <!-- <div class="product-colors">
+                                    <div class="color_box">
+                                        <button class="rtu">
+                                            <img class="rtu-img" src="../../img/goods_4_color_1.webp" alt="">
+                                        </button>
+                                        <button class="rtu">
+                                            <img class="rtu-img" src="../../img/goods_4_color_2.webp" alt="">
+                                        </button>
+                                        <button class="rtu">
+                                            <img class="rtu-img" src="../../img/goods_4_color_3.webp" alt="">
+                                        </button>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </li>
+                        <li>
+                            <div class="good-img">
+                                <a href=""><img src="../../img/goods_7.webp"  onclick="getdetail(7);return false;" alt=""></a>
+                                <div class="cover" onclick="initshop(this);" data-shop=0 data-id=7>
+                                    添加
+                                </div>
+                            </div>
+                            <div class="good-info">
+                                <div class="like_box">
+                                    <i class="like">
+                                        <img src="../../img/like_1.png" data-like=0 data-id=7 class="likes" alt="">
+                                    </i>
+                                </div>
+                                <div class="good-name">
+                                    <span class="product-name">缎面迷你手袋</span>
+                                </div>
+                                <div class="price-container">
+                                    <span>￥159</span>
+                                </div>
+                                <div class="product-colors">
+                                    <div class="color_box">
+                                        <button class="rtu">
+                                            <img class="rtu-img" src="../../img/goods_7_c1.webp" alt="">
+                                        </button>
+                                        <button class="rtu">
+                                            <img class="rtu-img" src="../../img/goods_7_c2.webp" alt="">
+                                        </button>
+                                        <button class="rtu">
+                                            <img class="rtu-img" src="../../img/goods_7_c3.webp" alt="">
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="good-img">
+                                <a href=""><img src="../../img/goods_8.webp"  onclick="getdetail(8);return false;" alt=""></a>
+                                <div class="cover" onclick="initshop(this);" data-shop=0 data-id=8>
+                                    添加
+                                </div>
+                            </div>
+                            <div class="good-info">
+                                <div class="like_box">
+                                    <i class="like">
+                                        <img src="../../img/like_1.png" data-id=8 data-like=0 class="likes" alt="">
+                                    </i>
+                                </div>
+                                <div class="good-name">
+                                    <span class="product-name">旋扣法棍包</span>
+                                </div>
+                                <div class="price-container">
+                                    <span class="old">￥259</span>
+                                    <span class="new">￥119</span>
+                                </div>
+                                <div class="product-colors">
+                                    <div class="color_box">
+                                        <a href="/cn/女式/手袋-法式长棍面包/旋扣法棍包_17074031.html"
+                                            class="EUCqJ sg-text-body-small">2 颜色</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="good-img">
+                                <a href=""><img src="../../img/goods_9.webp"  onclick="getdetail(9);return false;" alt=""></a>
+                                <div class="cover" onclick="initshop(this);" data-shop=0 data-id=9>
+                                    添加
+                                </div>
+                            </div>
+                            <div class="good-info">
+                                <div class="like_box">
+                                    <i class="like">
+                                        <img src="../../img/like_1.png" data-like=0 data-id=9 class="likes" alt="">
+                                    </i>
+                                </div>
+                                <div class="good-name">
+                                    <span class="sg-text">网店专享</span>
+                                    <span class="product-name">法棍包</span>
+                                </div>
+                                <div class="price-container">
+                                    <span class="old">￥259</span>
+                                    <span class="new">￥199</span>
+                                </div>
+                                <div class="product-colors">
+                                    <div class="color_box">
+                                        <a href="/cn/女式/手袋-法式长棍面包/旋扣法棍包_17074031.html"
+                                            class="EUCqJ sg-text-body-small">4颜色</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="good-img">
+                                <a href=""><img src="../../img/goods_10.webp"  onclick="getdetail(10);return false;" alt=""></a>
+                                <div class="cover" onclick="initshop(this);" data-shop=0 data-id=10>
+                                    添加
+                                </div>
+                            </div>
+                            <div class="good-info">
+                                <div class="like_box">
+                                    <i class="like">
+                                        <img src="../../img/like_1.png" data-like=0 data-id=10 class="likes" alt="">
+                                    </i>
+                                </div>
+                                <div class="good-name">
+                                    <span class="product-name">褶皱法棍包</span>
+                                </div>
+                                <div class="price-container">
+                                    <span class="old">￥359</span>
+                                    <span class="new">￥169</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="good-img">
+                                <a href=""><img src="../../img/goods_11.webp" onclick="getdetail(11);return false;" alt=""></a>
+                                <div class="cover" onclick="initshop(this);" data-shop=0 data-id=11>
+                                    添加
+                                </div>
+                            </div>
+                            <div class="good-info">
+                                <div class="like_box">
+                                    <i class="like">
+                                        <img src="../../img/like_1.png" data-like=0 data-id=11 class="likes" alt="">
+                                    </i>
+                                </div>
+                                <div class="good-name">
+                                    <span class="product-name">塔扣手柄法棍包</span>
+                                </div>
+                                <div class="price-container">
+                                    <span>￥259</span>
+                                    <span class="new"></span>
+                                </div>
+                                <div class="product-colors">
+                                    <div class="color_box">
+                                        <button class="rtu">
+                                            <img class="rtu-img" src="../../img/goods_11_c1.webp" alt="">
+                                        </button>
+                                        <button class="rtu">
+                                            <img class="rtu-img" src="../../img/goods_11_c2.webp" alt="">
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="good-img">
+                                <a href=""><img src="../../img/goods_12.webp" onclick="getdetail(12);return false;" alt=""></a>
+                                <div class="cover" onclick="initshop(this);" data-shop=0 data-id=12>
+                                    添加
+                                </div>
+                            </div>
+                            <div class="good-info">
+                                <div class="like_box">
+                                    <i class="like">
+                                        <img src="../../img/like_1.png" data-like=0 data-id=12 class="likes" alt="">
+                                    </i>
+                                </div>
+                                <div class="good-name">
+                                    <span class="sg-text">皮革</span>
+                                    <span class="product-name">皮革肩包</span>
+                                </div>
+                                <div class="price-container">
+                                    <span>￥359</span>
+                                    <span class="new"></span>
+                                </div>
+                                <div class="product-colors">
+                                    <div class="color_box">
+                                        <a href="/cn/女式/手袋-法式长棍面包/旋扣法棍包_17074031.html"
+                                            class="EUCqJ sg-text-body-small">5 颜色</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
+<script src="../../js/localstorage.js"></script>
+<script src="../../js/getElement.js"></script>
+<script>
+    var likes = document.querySelectorAll(".likes");
+    var shops = document.querySelectorAll(".cover");
+    var logo = document.querySelector(".logo")
+    var storage = Storage.get("user")
+    /* 页面初始化 */
+    function init() {
+        console.log("init-----");
+        /* 判断用户是否登录 */
+        isLogin()
+
+        /* like数据初始化 */
+        initLike()
+
+        /* like数据驱动视图 */
+        showLike()
+
+        /* 将data-shop进行渲染 */
+        showshop()
+
+        /* 将data-shop为1进行渲染 */
+        showstext()
+
+        /* 更新LikeNum */
+        initLikeNum()
+
+        /* 更新ShopNum */
+        initShop()
+
+        var id = []
+        for (let i = 0; i < likes.length; i++) {
+            id[i] = likes[i].getAttribute('data-id')
+            likes[i].addEventListener("click", function () {
+                /* 打印当前dom元素id */
+                console.log('获取当前id-----');
+                console.log(id[i]);
+
+                /* 打印localstorage */
+                /* console.log(storage); */
+
+                /*  确认收藏 */
+                if (!parseInt(likes[i].getAttribute("data-like"))) {
+                    likes[i].src = "../../img/like_2.png"
+                    likes[i].setAttribute("data-like", "1")
+                    /* 添加当前id到storage */
+                    storage.like[i] = 1
+                    /* 更新本地localstorage */
+                    Storage.set('user', storage)
+                    /* 获取localstorage */
+                    console.log("------------");
+                    initLikeNum()
+                    console.log("获取当前localstorage----");
+                    console.log(Storage.get('user'));
+                } else {
+                    /* 取消收藏 */
+                    likes[i].src = "../../img/like_1.png"
+                    likes[i].setAttribute("data-like", "0")
+                    /* 删除当前id到storage */
+                    storage.like[i] = 0
+                    /* 更新本地localstorage */
+                    Storage.set('user', storage)
+                    /* 获取localstorage */
+                    console.log("------------");
+                    initLikeNum()
+                    console.log("获取当前localstorage----");
+                    console.log(Storage.get('user'));
+                }
+            })
+        }
+    }
+    init()
+    /* 初始化shop属性 */
+    function initshop(e) {
+        console.log("initshop--------------------");
+        /* console.log("获取当前dom--");
+        console.log(e);
+        console.log("获取storage--");
+        console.log(storage); */
+        /* 获取最新localstorage 更新本地storage */
+        storage = Storage.get('user')
+        var shop = parseInt(e.getAttribute("data-shop"))
+        var id = e.getAttribute("data-id")
+        console.log("获取当前dom shop属性");
+        console.log(shop);
+        /* console.log("id-------");
+         console.log(id); */
+        /* 更新dom节点属性 */
+        if (shop) {
+            e.setAttribute("data-shop", "0")
+            /* console.log("----------当前shop属性");
+            console.log(shop); */
+            /* 更新storage 属性 */
+            storage.shop[id - 1] = 0
+            /* 更新localstorage属性 */
+            Storage.set('user', storage)
+            showstext()
+            initShop()
+        } else {
+            e.setAttribute("data-shop", "1")
+            /* console.log("----------当前shop属性");
+            console.log(shop); */
+            /* 更新storage 属性 */
+            storage.shop[id - 1] = 1
+            /* 更新localstorage属性 */
+            Storage.set('user', storage)
+            showstext()
+            initShop()
+        }
+    }
+
+    /* 将data-shop进行渲染 */
+    function showshop() {
+        console.log('showshop----');
+        storage = Storage.get("user")
+        /* 获取所有具有data-shop属性的dom节点 */
+        var shop = getElementByAttr('div', 'data-shop', /\d/)
+        console.log("获取shop属性dom");
+        console.log(shop);
+        /* console.log(storage); */
+        for (let i = 0; i < shop.length; i++) {
+            shop[i].setAttribute("data-shop", storage.shop[i])
+        }
+    }
+
+    /* 将data-shop为1进行渲染 */
+    function showstext() {
+        console.log("showstext-----------");
+        var isshop = getElementByAttr("div", 'data-shop', /[1]/)
+
+        isshop.forEach(item => {
+            item.innerText = "已添加"
+        })
+        var boshop = getElementByAttr("div", 'data-shop', /[0]/)
+        boshop.forEach(item => {
+            item.innerText = "添加"
+        })
+    }
+
+    /* 初始化like */
+    function initLike() {
+        console.log('initLike----');
+        /* var islike = getElementByAttr('img','data-like',/[1]/) */
+        /* console.log(islike); */
+        /* 获取最新localstorage */
+        storage = Storage.get("user")
+        console.log("获取storage--");
+        console.log(storage);
+        for (let i = 0; i < likes.length; i++) {
+            likes[i].setAttribute("data-like", storage.like[i])
+            /* console.log(likes[i].getAttribute("data-like")); */
+        }
+    }
+
+    /* 将like为 1 的 进行渲染 */
+    function showLike() {
+        console.log('showLike----');
+        var islike = getElementByAttr('img', 'data-like', /[1]/)
+        console.log("获取islike属性dom");
+        console.log(islike);
+        for (let i = 0; i < islike.length; i++) {
+            islike[i].src = "../../img/like_2.png"
+        }
+    }
+
+    /* 更新LikeNum */
+    function initLikeNum() {
+        console.log("initLikeNum");
+        var LikeNum = getElementByAttr("span", "LikeNum", /\d/)
+        var like = getElementByAttr("img", "data-like", /[1]/)
+        storage = Storage.get("user")
+        var length = like.length
+        LikeNum[0].innerText = `愿望清单(${length})`
+    }
+
+    /* 更新ShopNum */
+    function initShop() {
+        console.log("initShopNum");
+        var ShopNum = getElementByAttr("span", "ShopNum", /\d/)
+        var shop = getElementByAttr("div", "data-shop", /[1]/)
+        storage = Storage.get("user")
+        var length = shop.length
+        ShopNum[0].innerText = `购物篮(${length})`
+    }
+
+    var nav = document.querySelector(".main-classify")
+    window.onscroll = function () {
+        //为了保证兼容性，这里取两个值，哪个有值取哪一个
+        //scrollTop就是触发滚轮事件时滚轮的高度
+        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        /* console.log(scrollTop); */
+        if (scrollTop > 60) {
+            nav.className = "main-classify fixed";
+        } else {
+            nav.className = "main-classify"
+        }
+    }
+
+    /* 判断用户是否登录 */
+    function isLogin() {
+        var isLogin = getElementByAttr("span", "isLogin", /[0]/)
+        /* console.log(isLogin); */
+        var user = Storage.get("user")
+        console.log("isLogin?-------");
+        if (!user) {
+            console.log("您未登录");
+            isLogin[0].setAttribute("isLogin", 0)
+            isLogin[0].innerText = "登录"
+        } else {
+            console.log("欢迎您！~");
+            isLogin[0].setAttribute("isLogin", 1)
+            isLogin[0].innerText = "您已登录"
+        }
+    }
+
+    var li = document.querySelectorAll(".goods-main li")
+    /* 监听窗口大小 */
+    window.onresize = function () {
+        /* console.log(document.body.clientWidth); */
+        if (document.body.clientWidth < 800) {
+            logo.className = 'none logo'
+        } else {
+            logo.className = 'logo'
+        }
+        if (document.body.clientWidth < 365) {
+            li.forEach(item => {
+                item.className = "li-resize-s"
+            })
+        } else if (document.body.clientWidth >= 365 && document.body.clientWidth < 1190) {
+            li.forEach(item => {
+                item.className = "li-resize"
+            })
+        } else {
+            li.forEach(item => {
+                item.className = ""
+            })
+        }
+    }
+    function getdetail(id) {
+        window.location.href = "./../detail/detail.html?goodsid=" + id
+    }
+</script>
+
+</html>

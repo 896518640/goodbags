@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        box-sizing: border-box;
+    }
+
+    .pageContainer {
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, .7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: url(../../img/bg.png);
+    }
+
+    h2 {
+        margin-bottom: 30px;
+    }
+
+    .login {
+        width: 300px;
+        height: 300px;
+        margin: 0 auto;
+        position: relative;
+        background-color: #fff;
+        padding: 15px;
+        box-shadow: 0 10px 20px -40px rgba(0, 0, 0, .5);
+        backdrop-filter: blur(8px);
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+        border-top: 1px solid rgba(255, 255, 255, .8);
+        border-left: 1px solid rgba(255, 255, 255, .8);
+        background: linear-gradient(to right bottom,
+                rgba(255, 255, 255, 0.9),
+                rgba(255, 255, 255, 0.7));
+    }
+
+    .login::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 10px;
+        width: 100%;
+        background: linear-gradient(to right,
+                rgba(223, 160, 129, .5),
+                rgba(232, 211, 194, .5),
+                rgba(129, 192, 201, .5));
+    }
+
+    .login input {
+        border: none;
+        background-color: transparent;
+        outline: none;
+        border-bottom: 1px solid #000;
+        border-radius: 0;
+        box-shadow: none;
+        font-size: 14px;
+        font-weight: 100;
+        letter-spacing: 1px;
+        margin-bottom: 30px;
+    }
+
+    .btn_box {
+        width: 100%;
+        height: 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+</style>
+
+<body>
+    <div class="pageContainer">
+        <div class="container">
+            <div class="login">
+                <form>
+                    <h2 class="text-center">注册</h2>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="name" placeholder="请输入您的账号">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="password" placeholder="请输入您的密码">
+                    </div>
+                    <div class="btn_box">
+                        <button type="submit" onclick="register();return false" class="btn btn-default">注册</button>
+                        <div style="color: black;">已有账号？<a href="../../index.html">前去登录</a></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
+<script src="./register.js"></script>
+
+</html>

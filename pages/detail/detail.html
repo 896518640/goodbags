@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        box-sizing: border-box;
+    }
+
+    .pageContainer {
+        width: 100%;
+    }
+
+    .header {
+        width: 100%;
+        height: 100%;
+
+    }
+
+    .header nav {
+        width: 100%;
+        background-color: #fff;
+    }
+
+    .header nav .top {
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        height: auto;
+        width: 100%;
+        border-bottom: 1px solid #d7d7d8;
+        text-align: center;
+        padding: 5px;
+        font-size: 12px;
+        color: #000;
+        color: inherit;
+        letter-spacing: 0;
+        line-height: 20px;
+        text-transform: none;
+    }
+
+    .header nav .bom {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 64px;
+        min-height: 64px;
+        font-family: "MangoSans", sans-serif;
+        background: inherit;
+    }
+
+    .header nav .bom-left .menu-list {
+        display: flex;
+        height: 64px;
+        margin: 0 0 0 1rem;
+        padding: 0;
+        list-style: none;
+    }
+
+    .header nav .bom-left .menu-item {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        margin: 0 1rem;
+        font-weight: 400;
+        font-size: 13px;
+        font-family: "MangoSans", sans-serif;
+        line-height: 20px;
+        letter-spacing: 0.3px;
+        list-style: none;
+        cursor: pointer;
+    }
+
+    .header .menu-item a {
+        text-underline-offset: 7px;
+        color: inherit;
+        transition: color 50ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    }
+
+    .header .menu-item a:hover {
+        text-decoration: underline;
+    }
+
+    .header .bom-center {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        z-index: 1;
+        display: inline-block;
+        width: 144px;
+        height: 100%;
+        margin-left: -72px;
+        text-align: left;
+    }
+
+    .header .logo img {
+        width: 100%;
+        height: auto;
+    }
+
+    .header .nav-list {
+        position: absolute;
+        z-index: 10;
+        display: table;
+        height: 100%;
+        top: 0;
+        right: 32px;
+    }
+
+    .header .nav-item {
+        position: relative;
+        display: table-cell;
+        width: 78px;
+        line-height: 58px;
+        cursor: pointer;
+    }
+
+    .header .nav-item span {
+        position: absolute;
+        bottom: 12px;
+        left: 0;
+        width: 78px;
+        font-weight: 400;
+        font-size: 11px;
+        font-family: MangoSans, sans-serif;
+        line-height: 14px;
+        letter-spacing: 0.3px;
+        white-space: nowrap;
+        text-align: center;
+    }
+
+    .header .nav-item i {
+        position: absolute;
+        top: 13px;
+        left: 0;
+        display: inline-block;
+        width: 100%;
+        height: 22px;
+        font-size: 22px;
+        line-height: 22px;
+        text-align: center;
+    }
+
+    .main {
+        width: 100%;
+        margin-top: 86px;
+    }
+
+    .main-classify {
+        width: 53%;
+        margin: 3px auto 0;
+        text-align: center;
+        height: 60px;
+    }
+
+    .main-classify a {
+        display: inline-block;
+        margin: 16px 16px 0;
+        color: #121314;
+        font-weight: 300;
+        font-size: 13px;
+        font-family: "MangoSans", sans-serif;
+        line-height: 20px;
+        letter-spacing: 0.3px;
+        outline: 0;
+        text-decoration: none;
+    }
+
+    .main .good-img {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .main .good-img img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .main .good-img .cover {
+        position: absolute;
+        bottom: -50px;
+        width: 100%;
+        background-color: rgba(251, 251, 250, .9);
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+        font-size: 12px;
+        color: #000;
+        transition: .3s;
+        z-index: 100;
+    }
+
+    .main .goods-main li:hover .cover {
+        transform: translateY(-50px);
+        cursor: pointer;
+    }
+
+    .main .goods-main li img {
+        transition: .9s;
+    }
+
+    .main .goods-main li:hover img {
+        transform: scale(1.1);
+    }
+
+    .main .good-info {
+        position: relative;
+        z-index: 3;
+        display: inline-block;
+        width: 100%;
+        height: 107px;
+        max-height: 131px;
+        padding: 14px 40px 54px 8px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-align: left;
+        text-overflow: ellipsis;
+        background-color: #fff;
+    }
+
+    .goods-main ul {
+        width: 100%;
+        /* background-color: seashell; */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .goods-main li {
+        width: 49.5%;
+        margin-right: 5px;
+    }
+
+    .main .like {
+        position: absolute;
+        top: 14px;
+        right: 8px;
+        left: initial;
+        color: #666;
+        font-size: 20px;
+        cursor: pointer;
+        transition: all 0.25s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    }
+
+    .sg-text {
+        color: #121314;
+        font-family: "MangoSans", sans-serif;
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 400;
+        letter-spacing: .3px;
+        line-height: 16px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        display: block;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .product-name {
+        color: #121314;
+        font-family: "MangoSans", sans-serif;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 300;
+        letter-spacing: .3px;
+        line-height: 20px;
+        display: block;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .main .good-name {
+        width: 100%;
+        height: auto;
+    }
+
+    .main .product-colors {
+        width: 100%;
+        margin-top: 4px;
+        text-align: left;
+        opacity: 1;
+    }
+
+    .main .product-colors a {
+        position: relative;
+        z-index: 3;
+        text-align: left;
+        color: #121314;
+        font-family: "MangoSans", sans-serif;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 300;
+        letter-spacing: .3px;
+        line-height: 20px;
+    }
+
+    .main .color_box {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .main .rtu {
+        position: relative;
+        top: 1px;
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        padding: 0;
+        line-height: 16px;
+        text-align: center;
+        background-color: transparent;
+        border: 0;
+        border-radius: 16px;
+        cursor: pointer;
+        opacity: 1;
+        top: 0;
+        transition: .3s;
+    }
+
+    .main .rtu:nth-of-type(1) {
+        border: 1px solid #d7d7d8;
+        margin: 0 2px;
+    }
+
+    .main .rtu:focus {
+        border: 1px solid #d7d7d8;
+        margin: 0 2px;
+    }
+
+    .main .rtu img {
+        position: relative;
+        top: 0.6px;
+        left: 0.1px;
+        width: 12px;
+        height: 12px;
+        line-height: 16px;
+        vertical-align: top;
+        border-radius: 12px;
+        outline: none;
+        cursor: pointer;
+    }
+
+    .fixed {
+        position: fixed;
+        margin: 0 auto;
+        z-index: 999;
+        width: 100%;
+        text-align: center;
+        background-color: #fff;
+    }
+
+    .main .price-container .old {
+        position: relative;
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+    .main .price-container .old::before {
+        position: absolute;
+        top: 47%;
+        left: -4%;
+        width: 108%;
+        height: 1px;
+        background-color: #121314;
+        content: '';
+    }
+
+    .main .price-container .new {
+        color: #e90000
+    }
+
+    .main .price-container span {
+        color: #121314;
+        font-family: "MangoSans", sans-serif;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 300;
+        letter-spacing: .3px;
+        line-height: 20px;
+    }
+
+    .main .product-images {
+        float: left;
+        width: calc(100% - 465px);
+    }
+
+    .main .columns-2 {
+        float: left;
+        width: 100%;
+        /* min-height: 400px; */
+        margin-bottom: 2px;
+    }
+
+    .main .image-btn {
+        cursor: url(//st.mngbcn.com/static/assets/productDetail/zoom-in-18.svg), auto;
+        cursor: image-set(url(//st.mngbcn.com/static/assets/productDetail/zoom-in-18.svg) 1x, url(//st.mngbcn.com/static/assets/productDetail/zoom-in-36.svg) 2x), auto;
+        cursor: -webkit-image-set(url(//st.mngbcn.com/static/assets/productDetail/zoom-in-18.svg) 1x, url(//st.mngbcn.com/static/assets/productDetail/zoom-in-36.svg) 2x), auto;
+    }
+
+    .main .columns-3 {
+        float: left;
+        width: 100%;
+        min-height: 300px;
+        margin-bottom: 2px;
+    }
+
+    .main .product-images ul {
+        -webkit-padding-start: 0;
+        padding-inline-start: 0;
+        -webkit-margin-start: 0;
+        margin-inline-start: 0;
+        -webkit-margin-before: 0;
+        margin-block-start: 0;
+    }
+
+    .columns-2 img {
+        float: left;
+        width: calc(50% - 1px);
+    }
+
+    .columns-2 li:nth-of-type(1) img {
+        margin-right: 2px;
+    }
+
+    .columns-3 img {
+        float: left;
+        width: calc(33.3% - 1.3px);
+    }
+
+    .columns-3 li:nth-of-type(1) img,
+    .columns-3 li:nth-of-type(2) img {
+        margin-right: 2px;
+    }
+
+    .product-actions {
+        position: relative;
+        right: 0;
+        z-index: 2;
+        float: left;
+        min-width: 465px;
+        height: auto;
+        width: 33.3%;
+        padding: 56px;
+        position: fixed;
+        top: 60px;
+    }
+
+    .product-features {
+        display: inline-block;
+        float: left;
+        width: 60%;
+    }
+
+    .product-tag,
+    .product-reference {
+        /* color: #666; */
+        font-size: 10px;
+        line-height: 16px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+    .product-name {
+        display: block;
+        color: #121314;
+        font-size: 18px;
+        line-height: 28px;
+        letter-spacing: 0.3px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        font-weight: 400;
+    }
+
+    .product-tag,
+    .product-reference {
+        /* color: #666; */
+        font-size: 10px;
+        line-height: 16px;
+        letter-spacing: 1px;
+    }
+
+    .product-tag,
+    .product-name,
+    .product-reference {
+        font-weight: 400;
+        font-family: "MangoSans", sans-serif;
+    }
+
+    .product-prices .product-sale {
+        display: inline-block;
+        margin-left: 12px;
+    }
+
+    .screen-reader-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden !important;
+    }
+
+    .product-prices {
+        float: left;
+        width: 40%;
+        color: #121314;
+        font-weight: 400;
+        font-size: 18px;
+        font-family: "MangoSans", sans-serif;
+        line-height: 28px;
+        letter-spacing: 0.3px;
+        text-align: right;
+        margin-top: 22px;
+    }
+
+    .product-features-prices {
+        float: left;
+        width: 100%;
+        margin-bottom: 40px;
+    }
+
+    .product-colors {
+        float: left;
+        width: 100%;
+        margin-bottom: 28px;
+    }
+
+    .colors-container {
+        float: left;
+        width: 64%;
+        padding-left: 2px;
+    }
+
+    .color-container {
+        display: inline-block;
+        line-height: 0;
+        outline: none;
+        cursor: pointer;
+        margin-right: 10px;
+        margin-bottom: 12px;
+        padding: 1px;
+    }
+
+    .color-image {
+        width: 20px;
+    }
+
+    .color-image--cross-out {
+        position: absolute;
+    }
+
+    .colors-info {
+        float: left;
+        width: 36%;
+        text-align: right;
+        margin-top: 4px;
+    }
+
+    .colors-info-name {
+        color: #121314;
+        font-weight: 300;
+        font-size: 13px;
+        font-family: "MangoSans", sans-serif;
+        line-height: 20px;
+        letter-spacing: 0.3px;
+    }
+
+    .color-container--selected {
+        border: 1px solid #000;
+    }
+
+    .product-form {
+        float: left;
+        width: 100%;
+        font-size: 12px;
+        font-family: "mango-regular", Arial;
+        margin-bottom: 24px;
+    }
+
+    .sizes {
+        margin-bottom: 40px;
+        position: relative;
+        width: 100%;
+        min-height: 42px;
+    }
+
+    .add-cart-container {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .sizes::after {
+        clear: both;
+        content: "";
+        display: table;
+    }
+
+    .sizes .single-size {
+        position: relative;
+        display: block;
+        outline: none;
+        padding: 10px 15px;
+        height: 42px;
+        width: 100%;
+    }
+
+    .sizes .selector,
+    .sizes .single-size {
+        color: #121314;
+        font-weight: 400;
+        font-size: 13px;
+        font-family: "MangoSans", sans-serif;
+        line-height: 20px;
+        letter-spacing: 0.3px;
+        border: 1px solid #d7d7d8;
+        transition: all 0.25s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    }
+
+    .add-cart-container .add-cart {
+        color: #fff;
+        font-weight: 400;
+        font-size: 13px;
+        font-family: "MangoSans", sans-serif;
+        line-height: 20px;
+        letter-spacing: 0.3px;
+    }
+
+    .sg-s-btn {
+        height: 42px;
+        width: 100%;
+        font-family: "mango-regular", Arial;
+        line-height: 42px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.25s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+        outline: none;
+        height: 42px;
+        width: 100%;
+        font-family: "mango-regular", Arial;
+        line-height: 42px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.25s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+        outline: none;
+        color: #fff;
+        font-size: 14px;
+        background-color: #000;
+        border: 0;
+        font-size: 12px;
+    }
+
+    .product-favorite {
+        float: left;
+        width: 40px;
+        margin-left: 4px;
+    }
+
+    .product-options-without-shipping {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .options {
+        display: flex;
+        flex: 0 1 50%;
+        align-items: flex-start;
+        padding-top: 20px;
+    }
+
+    .options-social-trigger {
+        position: relative;
+        line-height: 20px;
+        text-align: right;
+        outline: none;
+        cursor: pointer;
+    }
+
+    .options svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .options-button {
+        padding: 2px 0 0 10px;
+        color: #121314;
+        font-weight: 400;
+        font-size: 13px;
+        font-family: "MangoSans", sans-serif;
+        line-height: 20px;
+        letter-spacing: 0.3px;
+        text-align: left;
+        background-color: transparent;
+        border: 0;
+    }
+
+    .options-social-trigger span {
+        display: block;
+        float: right;
+    }
+
+    .product-more {
+        height: 500px;
+        background-color: wheat;
+    }
+
+    .product-info {
+        position: relative;
+        z-index: 1;
+        float: left;
+        letter-spacing: 0.3px;
+        background-color: transparent;
+        height: auto;
+        width: 100%;
+        padding-top: 56px;
+        padding-bottom: 56px;
+    }
+
+    .product-info .product-info-wrapper {
+        height: auto;
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    .product-info .product-info-block:first-child {
+        width: 60%;
+        margin-right: 9%;
+    }
+
+    .product-info .product-info-block:last-child {
+        width: 30%;
+    }
+
+    .product-info .product-info-block {
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+        box-sizing: border-box;
+    }
+
+    .product-info .product-info-title {
+        margin-bottom: 16px;
+        color: #121314;
+        font-weight: 400;
+        font-size: 12px;
+        font-family: "MangoSans", sans-serif;
+        line-height: 18px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+    .product-info .product-info-text {
+        min-height: 16px;
+        color: #121314;
+        font-weight: 300;
+        font-size: 13px;
+        font-family: "MangoSans", sans-serif;
+        line-height: 20px;
+        letter-spacing: 0.3px;
+        margin-bottom: 8px;
+    }
+
+    .breadcrumbs {
+        margin: 32px 0 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .breadcrumbs li {
+        display: inline-block;
+        margin-right: 8px;
+    }
+
+    .breadcrumbs li a {
+        display: block;
+        color: #121314;
+        font-weight: 300;
+        font-size: 13px;
+        font-family: "MangoSans", sans-serif;
+        line-height: 20px;
+        letter-spacing: 0.3px;
+        background-color: #f3f3f3;
+        outline: none;
+        transition: all 0.25s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+        padding: 2px 8px;
+    }
+
+    .product-info .product-info-icons {
+        margin-top: 24px;
+        margin-bottom: 16px;
+        height: 26px;
+        overflow: hidden;
+    }
+
+    .product-info .product-info-icon {
+        height: auto;
+        width: 24px;
+        padding-bottom: 2px;
+        margin-right: 8px;
+        vertical-align: top;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <div class="pageContainer">
+        <div class="header">
+            <nav class="navbar  navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="top">￥199起免费配送</div>
+                    </div>
+                    <div class="row">
+                        <div class="bom">
+                            <div class="bom-left">
+                                <div class="menu-list">
+                                    <div class="menu-item">
+                                        <a href="">女士</a>
+                                    </div>
+                                    <div class="menu-item">
+                                        <a href="">男士</a>
+                                    </div>
+                                    <div class="menu-item">
+                                        <a href="">Teen</a>
+                                    </div>
+                                    <div class="menu-item">
+                                        <a href="">儿童</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bom-center">
+                                <div class="logo">
+                                    <img src="../../img/logo.png" alt="">
+                                </div>
+                            </div>
+                            <div class="bom-right">
+                                <div class="nav-list">
+                                    <div class="nav-item">
+                                        <i>
+                                            <svg t="1648352628562" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                                xmlns="http://www.w3.org/2000/svg" p-id="1228" width="16" height="16">
+                                                <path
+                                                    d="M760.090355 263.551488c-17.47807-41.321104-42.487673-78.426187-74.343195-110.281709s-68.960605-56.865125-110.281709-74.343195c-42.784432-18.092054-88.219227-27.27111-135.055952-27.27111-46.826492 0-92.261287 9.179057-135.055952 27.27111-41.310871 17.47807-78.415954 42.487673-110.271476 74.343195s-56.865125 68.960605-74.343195 110.281709c-18.092054 42.784432-27.27111 88.219227-27.27111 135.055952 0 46.826492 9.179057 92.261287 27.27111 135.055952 17.47807 41.310871 42.487673 78.415954 74.343195 110.271476s68.960605 56.865125 110.271476 74.343195c42.794665 18.092054 88.22946 27.27111 135.055952 27.27111 46.836725 0 92.27152-9.179057 135.055952-27.27111 41.321104-17.47807 78.426187-42.487673 110.281709-74.343195s56.865125-68.960605 74.343195-110.271476c18.092054-42.794665 27.27111-88.22946 27.27111-135.055952C787.361465 351.770715 778.182408 306.33592 760.090355 263.551488zM656.797827 614.985536c-57.796334 57.796334-134.64663 89.63139-216.388329 89.63139s-158.581762-31.835056-216.378096-89.63139c-57.796334-57.786101-89.63139-134.636397-89.63139-216.378096s31.835056-158.591995 89.63139-216.388329 134.636397-89.63139 216.378096-89.63139 158.591995 31.835056 216.388329 89.63139c57.796334 57.796334 89.63139 134.64663 89.63139 216.388329S714.594161 557.199435 656.797827 614.985536z"
+                                                    p-id="1229" fill="#707070"></path>
+                                                <path
+                                                    d="M954.805058 933.397493c-3.990894 4.001127-9.230222 5.996574-14.46955 5.996574s-10.478655-1.995447-14.46955-5.996574l-193.855126-193.844893c-7.981788-7.992021-7.981788-20.947078 0-28.939099 8.002254-7.992021 20.957311-7.992021 28.949332 0l193.844893 193.844893C962.79708 912.450415 962.79708 925.405471 954.805058 933.397493z"
+                                                    p-id="1230" fill="#707070"></path>
+                                            </svg>
+                                        </i>
+                                        <span>搜索</span>
+                                    </div>
+                                    <div class="nav-item">
+                                        <i>
+                                            <svg t="1648352742981" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                                xmlns="http://www.w3.org/2000/svg" p-id="3843" width="16" height="16">
+                                                <path
+                                                    d="M512 447.223c-88.224 0-160-71.776-160-160s71.776-160 160-160c88.225 0 160 71.776 160 160s-71.775 160-160 160z m0-256c-52.935 0-96 43.065-96 96s43.065 96 96 96 96-43.065 96-96-43.065-96-96-96zM454.901 870.594c-96.594 0-184.933-3.802-231.263-49.955C203.308 800.386 193 774.164 193 742.701c0-31.629 10.247-62.812 30.457-92.686 17.978-26.573 42.908-50.741 74.098-71.833C359.256 536.46 437.418 512.53 512 512.53c74.55 0 152.55 23.943 214.002 65.691 31.05 21.094 55.861 45.273 73.746 71.867C819.822 679.937 830 711.096 830 742.701c0 31.552-10.317 57.827-30.664 78.097-50.714 50.521-151.822 50.128-258.88 49.723a7395.45 7395.45 0 0 0-56.914-0.001c-9.605 0.037-19.163 0.074-28.641 0.074zM512 806.447c9.567 0 19.149 0.037 28.701 0.073 49.52 0.191 96.284 0.37 135.808-4.396 38.418-4.633 64.546-13.604 77.659-26.668 5.079-5.06 11.832-13.96 11.832-32.755 0-38.089-27.688-78.744-75.963-111.54C638.933 596.442 574.04 576.53 512 576.53c-126.309 0-255 83.862-255 166.171 0 18.675 6.738 27.547 11.807 32.596 32.045 31.922 128.975 31.55 214.491 31.224 9.556-0.037 19.139-0.074 28.702-0.074z"
+                                                    fill="#2c2c2c" p-id="3844"></path>
+                                            </svg>
+                                        </i>
+                                        <span isLogin=0>登录</span>
+                                    </div>
+                                    <div class="nav-item">
+                                        <i>
+                                            <svg t="1648352797036" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                                xmlns="http://www.w3.org/2000/svg" p-id="3181" width="16" height="16">
+                                                <path
+                                                    d="M722.055 120.875c-89.793 0-169.909 49.429-210.04 125.049l-0.029 0c-40.131-75.62-120.262-125.049-210.041-125.049C171.293 120.875 65 225.509 65 354.109c0 62.408 8.803 126.417 77.076 210.229 66.526 81.615 354.515 325.355 369.561 338.16l0 0.626c0 0 0.262-0.219 0.364-0.306 0.087 0.087 0.364 0.306 0.364 0.306l0-0.626c15.017-12.805 303.035-256.545 369.532-338.16C950.197 480.526 959 416.518 959 354.109 959 225.509 852.707 120.875 722.055 120.875zM858.789 545.51c-53.532 65.712-259.543 243.697-345.174 316.785l-0.059-0.059-1.629 1.397C370.319 742.906 209.62 600.047 165.167 545.51c-64.94-79.724-70.368-138.262-70.368-191.4 0-112.172 92.921-203.435 207.145-203.435 77.57 0 147.967 41.848 183.718 109.218l26.308 49.574 26.337-49.574c35.78-67.37 106.191-109.218 183.747-109.218 114.224 0 207.146 91.263 207.146 203.435C929.2 407.248 923.758 465.786 858.789 545.51z"
+                                                    p-id="3182" fill="#515151"></path>
+                                            </svg>
+                                        </i>
+                                        <span LikeNum=0>愿望清单</span>
+                                    </div>
+                                    <div class="nav-item">
+                                        <i>
+                                            <svg t="1648352863967" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                                xmlns="http://www.w3.org/2000/svg" p-id="7283" width="16" height="16">
+                                                <path
+                                                    d="M890.01984 357.60128c0-61.62432-50.13504-111.7696-111.7696-111.7696h-68.25984v-23.06048c0-113.36704-92.23168-205.59872-205.59872-205.59872s-205.59872 92.23168-205.59872 205.59872v23.06048h-68.23936c-61.62432 0-111.75936 50.13504-111.74912 110.9504l-21.7088 548.5056c0 61.62432 50.13504 111.75936 111.7696 111.75936H799.9488c61.62432 0 111.75936-50.13504 111.73888-112.56832l-21.66784-546.87744zM339.75296 222.78144c0-90.78784 73.85088-164.63872 164.63872-164.63872s164.63872 73.85088 164.63872 164.63872v23.06048H339.75296v-23.06048zM799.9488 976.09728H208.86528c-39.03488 0-70.8096-31.76448-70.81984-69.9904l21.7088-548.5056c0-39.03488 31.76448-70.8096 70.79936-70.8096H778.24c39.03488 0 70.8096 31.76448 70.83008 71.61856l21.66784 546.88768a70.8608 70.8608 0 0 1-70.78912 70.79936z"
+                                                    fill="#515151" p-id="7284"></path>
+                                                <path
+                                                    d="M504.39168 701.94176c-96.36864 0-174.76608-78.39744-174.76608-174.76608h-40.96c0 118.94784 96.77824 215.72608 215.72608 215.72608 118.95808 0 215.72608-96.77824 215.72608-215.72608h-40.96c0 96.36864-78.39744 174.76608-174.76608 174.76608z"
+                                                    fill="#515151" p-id="7285"></path>
+                                            </svg>
+                                        </i>
+                                        <span ShopNum=0>购物篮</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="main">
+            <div class="product-detail-main">
+                <div class="product-images" id="product-images">
+                    <!-- <ul class="columns-2">
+                        <li>
+                            <div class="image-btn">
+                                <img src="./images/1-1.webp" alt="">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="image-btn ">
+                                <img src="./images/1-2.webp" alt="">
+                                <div class="clearfix"></div>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="columns-3 clearfix">
+                        <li>
+                            <div class="image-btn">
+                                <img src="./images/1-3.webp" alt="">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="image-btn">
+                                <img src="./images/1-4.webp" alt="">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="image-btn">
+                                <img src="./images/1-5.webp" alt="">
+                            </div>
+                        </li>
+                    </ul> -->
+                </div>
+                <div class="clearfix"></div>
+                <div class="product-actions" style="position:fixed;top:60px">
+                    <div class="product-features-prices" id="product-price">
+                        <!-- <div class="product-features">
+                            <span class="product-tag">网店专享</span>
+                            <h1 class="product-name">串珠法棍包</h1>
+                            <span class="product-reference">商品编号. 27002515-CRYSTAL-LM </span>
+                        </div>
+                        <div class="product-prices">
+                            <span class="screen-reader-only">当前价格</span>
+                            <span class="product-sale">￥499</span>
+                        </div> -->
+                    </div>
+                    <div class="product-colors">
+                        <div class="colors-container" id="colorsContainer">
+                            <div class="color-container">
+                                <img alt="绿色" class="color-image color-image--cross-out" src="./images/none.gif">
+                                <img alt="绿色" class="color-image color-image--no-stock" src="./images/1-6.webp">
+                            </div>
+                            <div class="color-container color-container--selected" id="85" tabindex="0">
+                                <img alt="已选 粉色 " class="color-image" src="./images/1-7.webp">
+                            </div>
+                        </div>
+                        <div class="colors-info"><span itemprop="color" class="colors-info-name">粉色</span></div>
+                    </div>
+                    <div class="product-form" id="productForm">
+                        <form>
+                            <div class="sizes">
+                                <span class="single-size" role="option" tabindex="0">均码</span>
+                            </div>
+                            <div class="add-cart-container" id="addCartContainer">
+                                <button class="sg-s-btn add-cart" id="productFormAdd" type="button">添加到购物篮</button>
+                                <div class="product-favorite">
+                                    <button onclick="showbanner(this)" class="sg-s-btn favorite-btn" type="button">
+                                        <img src="./images/爱心.png" alt="">
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="product-options-without-shipping">
+                        <div class="options">
+                            <svg focusable="false" class="mdi-icon " width="24" height="24" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12,2C6.48,2 2,6.48 2,12C2,17.52 6.48,22 12,22C17.52,22 22,17.52 22,12C22,6.48 17.52,2 12,2M16.2,16.2L11,13V7H12.5V12.2L17,14.9L16.2,16.2Z">
+                                </path>
+                            </svg>
+                            <button class="options-button" id="shipmentAndReturnsOption" type="button">送货和退货</button>
+                        </div>
+                        <div class="options"><svg viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <title>*Brand/Icon/Small/Product/Outline</title>
+                                <defs>
+                                    <path id="product"
+                                        d="M9,3 L3,5.1494141 L3,11 L7,11 L7,21 L17,21 L17,11 L21,11 L21,5.1494141 L15.1708984,3.0302735 L9, 3 Z M14.9121094,4 L14.9481201,4.0131226 C14.703064,5.4226685 13.4785767,6.5 12,6.5 C10.5214233,6.5 9.296936, 5.4226685 9.0518799,4.0131226 L9.0878906,4 L14.9121094,4 Z M20,10 L16,10 L16,20 L8,20 L8,10 L4,10 L4, 5.8505859 L8.0984497,4.3598632 C8.4936523,6.152832 10.09021,7.5 12,7.5 C13.90979,7.5 15.5063477, 6.152832 15.9015503,4.3598632 L20,5.8505859 L20,10 Z">
+                                    </path>
+                                </defs>
+                                <g id="*Brand/Icon/Small/Product/Outline" stroke="none" stroke-width="1" fill="none"
+                                    fill-rule="evenodd">
+                                    <mask id="mask-2" fill="white">
+                                        <use xlink:href="#product"></use>
+                                    </mask>
+                                    <use id="product_L" fill="#121314" xlink:href="#product"></use>
+                                </g>
+                            </svg><button class="options-button" id="productDetailOption" type="button">产品信息</button>
+                        </div>
+                        <div class="options-social-trigger options" id="optionsSocialTrigger" role="button"
+                            tabindex="-1"><svg viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <title>*Brand/Icon/Small/Action/Share</title>
+                                <defs>
+                                    <path id="share"
+                                        d="M4.88705051,19.0798586 L10.2093535,19.0798586 L10.2093535,19.9669091 L4,19.9669091 L4,4 L10.2093535, 4 L10.2093535,4.88705051 L4.88705051,4.88705051 L4.88705051,19.0798586 Z M13.0004441,6.53121246 L18.009161, 11.5399293 L7.54820203,11.5399293 L7.54820203,12.4269798 L18.009161,12.4269798 L13.0004441, 17.4356967 L13.6276165,18.062869 L19.707031,11.9834546 L13.6276165,5.90404007 L13.0004441,6.53121246 Z">
+                                    </path>
+                                </defs>
+                                <g id="*Brand/Icon/Small/Action/Share" stroke="none" stroke-width="1" fill="none"
+                                    fill-rule="evenodd">
+                                    <mask id="mask-2" fill="white">
+                                        <use xlink:href="#share"></use>
+                                    </mask>
+                                    <use id="share_L" fill="#121314" xlink:href="#share"></use>
+                                </g>
+                            </svg><span class="options-button" role="button" tabindex="0">分享到</span></div>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-info-wrapper">
+                        <div class="product-info-block" id="info">
+                            <!-- <h2 class="product-info-title">描述</h2>
+                            <div class="product-info-text">
+                                <span> 法棍设计.</span>
+                                <span> 法棍设计.</span>
+                            </div>
+                            <p class="product-info-text">14.0x21.0x5.0cm (长x高x宽).</p>
+                            <ol class="breadcrumbs">
+                                <li>
+                                    <a href="">女士</a>
+                                </li>
+                                <li>
+                                    <a href="">手袋</a>
+                                </li>
+                                <li>
+                                    <a href="">法式长棍面包</a>
+                                </li>
+                            </ol> -->
+                        </div>
+                        <div class="product-info-block">
+                            <h2 class="product-info-title">
+                                成分和洗涤说明
+                            </h2>
+                            <p class="product-info-text">材质成分: 100% 聚酯纤维. 其他里料: 100% 聚酯纤维</p>
+                            <div class="product-info-icons">
+                                <img alt="请勿清洗" class="product-info-icon"
+                                    src="//st.mngbcn.com/images/washingIcons/10@2x.png">
+                                <img alt="请勿漂白" class="product-info-icon"
+                                    src="//st.mngbcn.com/images/washingIcons/12@2x.png">
+                                <img alt="请勿熨烫" class="product-info-icon"
+                                    src="//st.mngbcn.com/images/washingIcons/16@2x.png">
+                                <img alt="请勿干洗" class="product-info-icon"
+                                    src="//st.mngbcn.com/images/washingIcons/23@2x.png">
+                                <img alt="请勿用机器甩干" class="product-info-icon"
+                                    src="//st.mngbcn.com/images/washingIcons/25@2x.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
+<script src="../../js/template.js"></script>
+<script>
+    window.onscroll = function () {
+        var productImages = document.querySelector(".product-images")
+        var imgHeight = productImages.offsetHeight
+        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        /* console.log(scrollTop>(imgHeight/8)) */
+        var move = (imgHeight - 548)
+        if (scrollTop > move) {
+            var actions = document.querySelector(".product-actions")
+            /* document.querySelector(".product-actions").style.top = document.querySelector(".product-actions").style.top-scrollTop */
+            var top = 60
+            /* console.log(top);
+            console.log(move);
+            console.log(scrollTop); */
+            actions.style.top = top - (scrollTop - move) + "px"
+        } else {
+            var actions = document.querySelector(".product-actions")
+            actions.style.top = 60 + "px"
+        }
+    }
+    var url = location.search
+
+    var theRequest = new Object()
+    if (url.indexOf('?') != -1) {
+        var str = url.substr(1)
+        var strs = str.split('&')
+        for (var i = 0; i < strs.length; i++) {
+            theRequest[strs[i].split('=')[0]] = strs[i].split('=')[1]
+        }
+    }
+    console.log(theRequest);
+
+    var data = [
+        {
+            goodsid: 1, type: "网店专享", name: "串珠法棍包", num: '商品编号. 27002515-CRYSTAL-LM', price: "￥499",
+            detail: [
+                { src: "./images/1-1.webp" },
+                { src: "./images/1-2.webp" },
+                { src: "./images/1-3.webp" },
+                { src: "./images/1-4.webp" }
+            ],
+            span: ["法棍设计.", "法棍设计."],
+            des: "14.0x21.0x5.0cm (长x高x宽).",
+            tags: ["女士", "手袋", "法式长棍面包"]
+        },
+        {
+            goodsid: 2, type: "", name: "超大购物袋", num: '商品编号.  27012520-EXPRESS-LM', price: "￥299",
+            detail: [
+                { src: "./images/2-1.webp" },
+                { src: "./images/2-2.webp" },
+                { src: "./images/2-3.webp" },
+                { src: "./images/2-4.webp" }
+            ],
+            span: ["大号.", "回收聚酯纤维材质."],
+            des: "70.0x36.0x28.0cm (长x高x宽).",
+            tags: ["女士", "手袋", "购物者"]
+        },
+        {
+            goodsid: 3, type: "", name: "标志棉质手袋", num: '商品编号. 27040330-RIOJA-LM', price: "￥299",
+            detail: [
+                { src: "./images/3-1.webp" },
+                { src: "./images/3-2.webp" },
+                { src: "./images/3-3.webp" },
+                { src: "./images/3-4.webp" }
+            ],
+            span: ["中号.", "柔软牛仔布号."],
+            des: "25.0x15.0x5.0cm (长x高x宽).",
+            tags: ["女士", "手袋", "法式长棍面包"]
+        },
+        {
+            goodsid: 4, type: "", name: "翻盖斜挎包", num: '商品编号.27014393-MINI-LM', price: "￥259",
+            detail: [
+                { src: "./images/4-1.webp" },
+                { src: "./images/4-2.webp" },
+                { src: "./images/4-3.webp" },
+                { src: "./images/4-4.webp" }
+            ],
+            span: ["小号.", "斜挎包."],
+            des: "18.0x13.0x7.0cm (长x高x宽).",
+            tags: ["女士", "手袋", "单肩包"]
+        },
+        {
+            goodsid: 5, type: "NEW NOW", name: "桶包", num: '商品编号. 27015774-LAGO-LM', price: "￥359",
+            detail: [
+                { src: "./images/5-1.webp" },
+                { src: "./images/5-2.webp" },
+                { src: "./images/5-3.webp" },
+                { src: "./images/5-4.webp" }
+            ],
+            span: ["大号.", "桶包设计."],
+            des: "38.0x33.0x13.0cm (长x高x宽).",
+            tags: ["女士", "手袋", "购物者"]
+        },
+        {
+            goodsid: 6, type: "", name: "帆布斜挎包", num: '商品编号. 27014400-LIENZO-LM', price: "￥359",
+            detail: [
+                { src: "./images/6-1.webp" },
+                { src: "./images/6-2.webp" },
+                { src: "./images/6-3.webp" },
+                { src: "./images/6-4.webp" }
+            ],
+            span: ["Committed系列.", "中号."],
+            des: "23.0x16.0x7.0cm (长x高x宽).",
+            tags: ["女士", "手袋", "单肩包"]
+        },
+        {
+            goodsid: 7, type: "", name: "缎面迷你手袋", num: '商品编号. 27095764-BLADE-LM', price: "￥159",
+            detail: [
+                { src: "./images/7-1.webp" },
+                { src: "./images/7-2.webp" },
+                { src: "./images/7-3.webp" },
+                { src: "./images/7-4.webp" }
+            ],
+            span: ["缎面面料.", "迷你尺寸."],
+            des: "16.0x27.0x1.0cm (长x高x宽).",
+            tags: ["女士", "手袋", "小家伙"]
+        },
+        {
+            goodsid: 8, type: "", name: "旋扣法棍包", num: '商品编号. 27095764-BLADE-LM', price: "￥119",
+            detail: [
+                { src: "./images/8-1.webp" },
+                { src: "./images/8-2.webp" },
+                { src: "./images/8-3.webp" },
+                { src: "./images/8-4.webp" }
+            ],
+            span: ["Committed系列.", "回收聚酯纤维材质."],
+            des: "28.0x24.0x6.0cm (长x高x宽).",
+            tags: ["女士", "手袋", "法式长棍面包"]
+        },
+        {
+            goodsid: 9, type: "网店专享", name: "法棍包", num: '商品编号. 27095764-BLADE-LM', price: "￥199",
+            detail: [
+                { src: "./images/9-1.webp" },
+                { src: "./images/9-2.webp" },
+                { src: "./images/9-3.webp" },
+                { src: "./images/9-4.webp" }
+            ],
+            span: ["法棍设计.", "小号."],
+            des: "28.0x18.0x6.0cm (长x高x宽).",
+            tags: ["女士", "手袋", "法式长棍面包"]
+        },
+        {
+            goodsid: 10, type: "", name: "褶皱法棍包", num: '商品编号. 27095764-BLADE-LM', price: "￥169",
+            detail: [
+                { src: "./images/10-1.webp" },
+                { src: "./images/10-2.webp" },
+                { src: "./images/10-3.webp" },
+                { src: "./images/10-4.webp" }
+            ],
+            span: ["褶皱设计.", "小号."],
+            des: "28.0x28.0x11.0cm (长x高x宽).",
+            tags: ["女士", "手袋", "法式长棍面包"]
+        },
+        {
+            goodsid: 11, type: "", name: "搭扣手柄法棍包", num: '商品编号. 27095764-BLADE-LM', price: "￥259",
+            detail: [
+                { src: "./images/11-1.webp" },
+                { src: "./images/11-2.webp" },
+                { src: "./images/11-3.webp" },
+                { src: "./images/11-4.webp" }
+            ],
+            span: ["PU皮.", "小号."],
+            des: "28.0x19.0x7.0cm (长x高x宽).",
+            tags: ["女士", "手袋", "法式长棍面包"]
+        },
+        {
+            goodsid: 12, type: "皮革", name: "皮革肩包", num: '商品编号. 27095764-BLADE-LM', price: "￥359",
+            detail: [
+                { src: "./images/12-1.webp" },
+                { src: "./images/12-2.webp" },
+                { src: "./images/12-3.webp" },
+                { src: "./images/12-4.webp" }
+            ],
+            span: ["Committed系列.", "100%绒面革."],
+            des: "24.0x15.0x10.0cm (长x高x宽).",
+            tags: ["女士", "手袋", "皮肤"]
+        },
+    ]
+    /* 过滤当前id的数据 */
+    var obj = data.filter((item => { return item.goodsid === +(theRequest.goodsid) }))
+    console.log(obj);
+    //商品信息
+    var detailImg = document.getElementById('product-images')
+    /* 动态生成dom */
+    function getImg(item) {
+        var imgdata = '<ul class="columns-2">' +
+            '<li>' +
+            '<div class="image-btn">' +
+            '<img src=' + item.detail[0].src + ' alt="">' +
+            '</div>' +
+            '</li>' +
+            '<li>' +
+            '<div class="image-btn ">' +
+            '<img src=' + item.detail[1].src + ' alt="">' +
+            '<div class="clearfix"></div>' +
+            '</div>' +
+            '</li>' +
+            '</ul>' +
+            '<ul class="columns-2 clearfix">' +
+            '<li>' +
+            '<div class="image-btn">' +
+            '<img src=' + item.detail[2].src + ' alt="">' +
+            '</div>' +
+            '</li>' +
+            '<li>' +
+            '<div class="image-btn">' +
+            '<img src=' + item.detail[3].src + ' alt="">' +
+            '</div>' +
+            '</li>' +
+            '</ul>'
+        return imgdata
+    }
+    //循环加载到页面
+    function getDetailImg() {
+        var html = getImg(obj[0] || [])
+        detailImg.innerHTML = html
+    }
+
+    window.onload = getDetailImg()
+
+    var price = document.getElementById("product-price")
+    function getPrice(item) {
+        var pricedata =
+            '<div class="product-features">' +
+            '<span class="product-tag">' + item.type + '</span>' +
+            '<h1 class="product-name">' + item.name + '</h1>' +
+            '<span class="product-reference">' + item.num + '</span>' +
+            '</div>' +
+            '<div class="product-prices">' +
+            '<span class="screen-reader-only">当前价格</span>' +
+            '<span class="product-sale">' + item.price + '</span>' +
+            '</div>'
+        return pricedata
+    }
+    function getPriceData() {
+        html = getPrice(obj[0] || [])
+        price.innerHTML = html
+    }
+
+    window.onload = getPriceData()
+    var des = document.getElementById("info")
+    function getInfo(item) {
+        var desdata =
+            '<h2 class="product-info-title">描述</h2>' +
+            '<div class="product-info-text">' +
+            '<span>'+item.span[0]+'</span>' +
+            '<span>'+item.span[1]+'</span>' +
+            '</div>' +
+            '<p class="product-info-text">'+item.des+'</p>' +
+            '<ol class="breadcrumbs">' +
+            '<li>' +
+            '<a href="">女士</a>' +
+            '</li>' +
+            '<li>' +
+            '<a href="">手袋</a>' +
+            '</li>' +
+            '<li>' +
+            '<a href="">法式长棍面包</a>' +
+            '</li>' +
+            '</ol>'
+        return desdata
+    }
+    function getinfoData() {
+        html = getInfo(obj[0] || [])
+        des.innerHTML = html
+        getPriceData()
+        getDetailImg()
+    }
+
+    window.onload = getinfoData()
+</script>
+
+</html>
